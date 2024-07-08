@@ -1,9 +1,8 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 interface CardProps {
   theme?: "dark" | "light";
-  title: string;
   description: string;
   name: string;
   date: string;
@@ -72,7 +71,6 @@ const DateWrapper = styled.div`
 
 const Card: React.FC<CardProps> = ({
   theme = "light",
-  title,
   description,
   name,
   date,
@@ -89,7 +87,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <CardContainer theme={theme}>
       <Header>
-        <ProfileImage>{name.charAt(0)}</ProfileImage>
+        <ProfileImage>{name?.charAt(0)}</ProfileImage>
         <UserName>{name}</UserName>
       </Header>
       <RatingWrapper>{renderStars()}</RatingWrapper>
